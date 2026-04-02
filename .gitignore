@@ -1,0 +1,41 @@
+# Secrets and credentials
+.env
+credentials/
+*.json.keys
+
+# Personal memory data
+memory/long_term.json
+memory/tool_calls.log
+memory/scratchpad.json
+
+# MCP server installs
+spotify-mcp-server/
+youtube-music-mcp-server/
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Mac
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# PDFs (copyrighted content)
+*.pdf
+
+# RAG vector store
+rag/vector_store/
+
+# Eval results
+evals/results/

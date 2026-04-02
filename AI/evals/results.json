@@ -1,0 +1,3 @@
+[{"id": "eval_001", "input": "remember that amit's email id is amitiitkgp18@gmail.com", "case id": "eval_001",
+ "tool_eval": "Correct sequence of tools called for eval_001", 
+ "response_eval": "Score from LLM Judge for eval_001 is : Score: 3\n\nThe actual response provides the email ID of Amit and offers further assistance if needed. It includes extra information compared to the expected response, which is more concise and straightforward. While the essential action of noting or saving the email ID is clear in both, the actual response is more verbose.", "created_at": "2026-04-02T16:16:30.246958"}]
