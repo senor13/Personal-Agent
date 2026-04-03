@@ -4,9 +4,9 @@ credentials/
 *.json.keys
 
 # Personal memory data
-memory/long_term.json
-memory/tool_calls.log
-memory/scratchpad.json
+AI/memory/long_term.json
+AI/memory/tool_calls.log
+AI/memory/scratchpad.json
 
 # MCP server installs
 spotify-mcp-server/
@@ -38,12 +38,12 @@ logs/
 rag/vector_store/
 
 # Eval results
-evals/results/
+AI/evals/results/
 
 # Claude Code instructions
 CLAUDE.md
 
-memory/check.ipynb
+AI/memory/check.ipynb
 
 CLAUDE.docx
 
