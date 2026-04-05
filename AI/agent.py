@@ -6,6 +6,8 @@ sys.path.append("/Users/sagrikasrivastav/Desktop/AI/Personal-Agent/AI/mcp")
 from client import fetch_tools,execute_tools
 from tools import save_memory,update_memory,youtube_search
 import time
+sys.path.append("/Users/sagrikasrivastav/Desktop/AI/Personal-Agent/AI/rag")
+from rag import retrieval
 
 def run_agent(query,process1,process2,stop_flag=None):
     message = query
@@ -13,6 +15,24 @@ def run_agent(query,process1,process2,stop_flag=None):
     tool1 = fetch_tools(process1)
     tool2 = fetch_tools(process2)
     custom_tools = [
+        {
+            "type":"function",
+            "function": {
+                "name": "book_retrieval_tool",
+                "description":"ALWAYS use this tool first when the user asks ANY question about AI, LLMs, agents, RAG, fine-tuning, evaluation, or any technical AI engineering topic. Do not answer from your own knowledge first - retrieve from the book first.",
+                "parameters" : {
+                    "type":"object",
+                    "properties": {
+                        "message": {
+                            "type": "string" ,
+                            "description": "the query asked by the user regarding which the retrieval has to be performed"
+                        }
+                    },
+                    "required":["message"]
+
+                }
+            }
+        },
         {
             "type":"function",
             "function": {
@@ -97,9 +117,11 @@ def run_agent(query,process1,process2,stop_flag=None):
             }
         }
 
+
+
     ]
     tools = tool1 + tool2 + custom_tools
-    function_map = {"save_memory":save_memory,"update_memory":update_memory,"youtube_search":youtube_search}
+    function_map = {"book_retrieval_tool": retrieval, "save_memory": save_memory,"update_memory":update_memory,"youtube_search":youtube_search}
     input_token_count = 0
     output_token_count = 0
     tool_call_latency = 0
